@@ -121,7 +121,7 @@ public class Mastermind {
 	}
 	
 	private void verloren() {
-		System.out.println("Leider haben sie Verloren\nDer Code war: " + getCode());
+		System.out.println("Leider haben Sie Verloren\nDer Code war: " + getCode());
 	}
 	
 
