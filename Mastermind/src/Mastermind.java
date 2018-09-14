@@ -101,6 +101,7 @@ public class Mastermind {
 			compCodes();
 			
 			if (win) {
+				System.out.println();
 				break;
 			}
 			else {
