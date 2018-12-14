@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class Mastermind {
 	
 	public Mastermind() {
-		setCode();
+		setCode(); 
 	}
 	
 	private Settings set = new Settings();
