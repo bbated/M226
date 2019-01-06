@@ -7,9 +7,9 @@ public class Cell {
 	private int x;
 	private int y;
 	
-	public Cell(int width, int lenght){
-		this.x = width;
-		this.y = lenght;
+	public Cell(int x, int y){
+		this.x = x;
+		this.y = y;
 	}
 	
 	public int getValue() {

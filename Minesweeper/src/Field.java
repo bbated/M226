@@ -7,6 +7,8 @@ public class Field {
 	private ArrayList<Bomb> bomb = new ArrayList<>() ;
 	private ArrayList<Cell> cell = new ArrayList<>();
 	
+	private boolean loop;
+	
 	private String[][] display;
 	
 	private int stillHiden;
@@ -21,40 +23,46 @@ public class Field {
 	private int y = 100; 
 	
 	public Field(Userinput input) {
-		display = new String[set.getFieldLenght()][set.getFieldWidth()];
+		display = new String[set.getFieldX()][set.getFieldY()];
 		this.stillHiden = set.getCellAmount();
 		this.inp = input;
 		
 	}
 	
 	public void start() throws InterruptedException {
+		this.loop = true;
 		this.initialize();
-		while(val.isNBomb(x, y, bomb)) {
-			if (!val.isNBomb(x, y, bomb)) {
-				break;
-			}
-			this.x = 100;
-			this.y = 100;
-			if(val.isNInt(x, y, set.getFieldLenght(), set.getFieldWidth())) {
-				this.x = inp.setX();
-				this.y = inp.setY();
+		while(loop) {
+			this.x = inp.setX();
+			this.y = inp.setY();
+			if(val.isInt(x, y, set.getFieldX(), set.getFieldY())) {
+				if (val.isBomb(x, y, bomb)) {
+					loop = false;
+				}
 				if (val.isNRevealed(x, y, cell)) {
 					for (Cell c : cell) {
 						if (c.getX() == x && c.getY() == y) {
 							c.setHide(false);
-							if(val.isNBomb(c.getX(), c.getY(), bomb)){
-								display[y][x] = String.valueOf(c.getValue());
-								this.stillHiden--; 
+							if(false == val.isBomb(c.getX(), c.getY(), bomb)){
+								display[x][y] = String.valueOf(c.getValue());
+								this.stillHiden--;
+								this.x = 100;
+								this.y = 100;
 							}
 							else {
 								c.setHide(false);
 								display[y][x] = "B";
+								this.x = 100;
+								this.y = 100;
 								break;
 							}
 							break;
 						}
 					}
 				}
+			}
+			else {
+				System.out.println("Bitte eine gültige Zahl eingeben");
 			}
 			
 			this.draw();
@@ -81,8 +89,8 @@ public class Field {
 			set.Intro();
 		
 		//Alle Felder fühlen
-		for (int i = 0; i < set.getFieldLenght(); i++) {
-			for (int j = 0; j < set.getFieldWidth(); j++) {
+		for (int i = 0; i < set.getFieldX(); i++) {
+			for (int j = 0; j < set.getFieldY(); j++) {
 				display[i][j] = "?"; 
 				Cell c = new Cell(i,j);
 				cell.add(c);
@@ -97,9 +105,10 @@ public class Field {
 		int bX = 0;
 		int bY = 0;
 		for (int i = 0; i < set.getBombAmount(); i++) {
-			bX = random.nextInt(set.getFieldWidth() - 1);
-			bY = random.nextInt(set.getFieldLenght() - 1);
-			Bomb b = new Bomb(bX,bY);
+			bX = random.nextInt(set.getFieldX() - 1);
+			bY = random.nextInt(set.getFieldY() - 1);
+			Bomb b = new Bomb(bX, bY);
+			System.out.println(bX + " " + bY);
 			bomb.add(b);
 			for (Cell c : cell) {
 					if (c.getX() == bX + 1  && c.getY() == bY) {
@@ -147,11 +156,11 @@ public class Field {
 		System.out.println("");
 		int x = 0;
 		boolean header = true;
-		for (int i = 0; i < set.getFieldLenght(); i++) {
-			for (int j = 0; j < set.getFieldWidth(); j++) {
+		for (int i = 0; i < set.getFieldY(); i++) {
+			for (int j = 0; j < set.getFieldX(); j++) {
 				if (header) {
 					System.out.print(" ");
-					for (int y = 0; y < set.getFieldWidth(); y++) {
+					for (int y = 0; y < set.getFieldX(); y++) {
 						System.out.print(" " + y);
 					}
 					System.out.println("");
@@ -161,13 +170,13 @@ public class Field {
 				}
 				
 				else {					
-					System.out.print(" " + display[i][j]);
+					System.out.print(" " + display[j][i]);
 				}
 
 			}
 			System.out.print("\n");
 			
-			if(i != set.getFieldLenght()-1){
+			if(i != set.getFieldY()-1){
 				x++;
 				System.out.print(x);
 			}
@@ -179,7 +188,7 @@ public class Field {
 	
 	private void revealBomb() {
 		for (Bomb b : bomb) {
-			display[b.getY()][b.getX()] = "B";
+			display[b.getX()][b.getY()] = "B";
 		}
 		this.draw();
 	}

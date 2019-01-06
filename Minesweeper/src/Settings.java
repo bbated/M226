@@ -2,25 +2,25 @@ import java.util.concurrent.TimeUnit;
 
 public class Settings {
 	
-	private int fieldLenght;
-	private int fieldWidth;
+	private int fieldY;
+	private int fieldX;
 	private int bombAmount;
 	private int cellAmount;
 	
-	public int getFieldLenght() {
-		return fieldLenght;
+	public int getFieldY() {
+		return fieldY;
 	}
 
-	public void setFieldLenght(int fieldLenght) {
-		this.fieldLenght = fieldLenght;
+	public void setFieldY(int fieldY) {
+		this.fieldY = fieldY;
 	}
 
-	public int getFieldWidth() {
-		return fieldWidth;
+	public int getFieldX() {
+		return fieldX;
 	}
 
-	public void setFieldWidth(int fieldWidth) {
-		this.fieldWidth = fieldWidth;
+	public void setFieldX(int fieldX) {
+		this.fieldX = fieldX;
 	}
 
 	public int getBombAmount() {
@@ -39,24 +39,24 @@ public class Settings {
 
 	public Settings(){ //Set default Settings
 		changeToDefault();
-		this.cellAmount = (this.fieldLenght * this.fieldWidth) - this.bombAmount;
+		this.cellAmount = (this.fieldY * this.fieldX) - this.bombAmount;
 	}
 	
 	void changeToDefault() {
-		this.fieldLenght = 8;
-		this.fieldWidth = 10;
+		this.fieldY = 8;
+		this.fieldX = 10;
 		this.bombAmount = 10;
 	}
 	
 	void changeToMedium() {
-		this.fieldLenght = 14;
-		this.fieldWidth = 18;
+		this.fieldY = 14;
+		this.fieldX = 18;
 		this.bombAmount = 40;
 	}
 	
 	void changeToHard(){
-		this.fieldLenght = 20;
-		this.fieldWidth = 24;
+		this.fieldY = 20;
+		this.fieldX = 24;
 		this.bombAmount = 99;
 	}
 	

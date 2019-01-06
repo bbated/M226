@@ -2,21 +2,18 @@ import java.util.ArrayList;
 
 public class Validator {
 
-	public boolean isNInt(int x, int y, int lenght, int width) {
+	public boolean isInt(int x, int y, int width, int lenght) {
 		if(x <= (width - 1)  && y <= (lenght - 1)) {
-			return false;
+			return true;
 		}
 		else {
-			return true;
+			return false;
 		}
 	}
 	
-	public boolean isNBomb(int x, int y, ArrayList<Bomb> listBomb) {
+	public boolean isBomb(int x, int y, ArrayList<Bomb> listBomb) {
 		for (Bomb b : listBomb) {
 			if (b.getX() == x && b.getY() == y) {
-				return false;
-			}
-			else {
 				return true;
 			}
 		}

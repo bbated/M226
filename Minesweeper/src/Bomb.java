@@ -1,8 +1,8 @@
 
 public class Bomb extends Cell {
 
-	public Bomb(int width, int lenght) {
-		super(width, lenght);
+	public Bomb(int x, int y) {
+		super(x, y);
 		
 	}
 		
