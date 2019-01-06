@@ -108,7 +108,6 @@ public class Field {
 			bX = random.nextInt(set.getFieldX() - 1);
 			bY = random.nextInt(set.getFieldY() - 1);
 			Bomb b = new Bomb(bX, bY);
-			System.out.println(bX + " " + bY);
 			bomb.add(b);
 			for (Cell c : cell) {
 					if (c.getX() == bX + 1  && c.getY() == bY) {
