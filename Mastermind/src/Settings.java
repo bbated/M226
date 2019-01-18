@@ -34,5 +34,7 @@ public class Settings {
 	public int getCodeLenth() {
 		return codeLenth;
 	}
+	
+	
 		
 }

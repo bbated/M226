@@ -19,7 +19,7 @@ public class main {
 				e.printStackTrace();
 			}
 			System.out.println();
-			System.out.print("Wollen Sie nomals Spielen? (j / n )" );
+			System.out.print("Wollen Sie nomals Spielen? (j / n )\n" );
 			answer = inp.input.next();
 			System.out.println("\n");
 			

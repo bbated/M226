@@ -98,6 +98,15 @@ public class Mastermind {
 				versuch[i] = input.next();
 			}
 			
+			for (int j = 0; j < versuch.length; j++) {
+				 try {
+					 String.valueOf(versuch[j]);
+					 } 
+				 catch (Exception e) {
+						 System.out.println(e);
+					 } 
+			}
+			
 			compCodes();
 			
 			if (win) {
