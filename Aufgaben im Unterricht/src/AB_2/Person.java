@@ -1,6 +1,6 @@
 package AB_2;
 
-class Person {
+abstract class Person {
 	String name;
 	String vorname;
 	int personalNummer;
@@ -11,4 +11,11 @@ class Person {
 		this.personalNummer = PersonalNummer;
 		
 	}
+	
+	public void print() {
+		System.out.println("Name: "+this.vorname + " " + this.name);
+		System.out.println("Personalnummer: " + this.personalNummer);
+	}
+
+	public abstract int berechneFerien(int alter);
 }

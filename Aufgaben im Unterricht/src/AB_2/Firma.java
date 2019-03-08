@@ -6,5 +6,6 @@ class Firma {
 	
 	public Firma (Person[] p) {
 	mitarbeiter = p;
-}
+	}
+	
 }
