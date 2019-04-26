@@ -8,7 +8,6 @@ public class Kreis extends Figur {
 		this.radius = Radius;
 		
 	}
-
 	
 	public int getRadius() {
 		return radius;
