@@ -8,5 +8,14 @@ public class Kreis extends Figur {
 		this.radius = Radius;
 		
 	}
+	String text = "";
+	
+	public int getRadius() {
+		return radius;
+	}
 
+	public void setRadius(int radius) {
+		this.radius = radius;
+	}
+	
 }
