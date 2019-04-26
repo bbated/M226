@@ -8,7 +8,7 @@ public class Kreis extends Figur {
 		this.radius = Radius;
 		
 	}
-	String text = "";
+	
 	
 	public int getRadius() {
 		return radius;
