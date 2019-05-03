@@ -76,6 +76,10 @@ public class Display extends JFrame {
     	  g.drawLine(l.getX(), l.getY(), l.getEndX(), l.getEndY());
       }
       
+      if (f instanceof Text) {
+    	  Text t = (Text)f;
+    	  g.drawString(t.getText(), t.getX(), t.getY());
+      }
     }
   }
 
