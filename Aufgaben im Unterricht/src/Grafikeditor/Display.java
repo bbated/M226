@@ -66,6 +66,16 @@ public class Display extends JFrame {
       /* TODO: Hier muss für jede weitere Figur-Klasse, welche dargestellt werden können muss,
        * ein analoger Abschnitt, wie für die Rechteck-Klasse folgen.
        */
+      if (f instanceof Kreis) {
+    	  Kreis k = (Kreis)f;
+    	  g.drawOval(k.getX(), k.getY(), k.getRadius(), k.getRadius());
+      }
+      
+      if (f instanceof Linie) {
+    	  Linie l = (Linie)f;
+    	  g.drawLine(l.getX(), l.getY(), l.getEndX(), l.getEndY());
+      }
+      
     }
   }
 
