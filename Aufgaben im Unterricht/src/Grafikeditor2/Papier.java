@@ -19,6 +19,7 @@ public class Papier extends JPanel implements MouseListener, MouseMotionListener
 	Figur f = null;
 	private char mode = 'r';
 	private char fill = 'e';
+	private char color = 'n';
 	
 		
 	public Papier() {
@@ -48,6 +49,12 @@ public class Papier extends JPanel implements MouseListener, MouseMotionListener
 		Matcher matcher2 = pattern2.matcher(e.getKeyChar() + "");
 		if(matcher2.matches()) {
 		     fill = e.getKeyChar();
+		}
+		
+		Pattern pattern3 = Pattern.compile("^[yn]$");
+		Matcher matcher3 = pattern3.matcher(e.getKeyChar() + "");
+		if(matcher3.matches()) {
+		     color = e.getKeyChar();
 		}
 	}
 
@@ -80,10 +87,11 @@ public class Papier extends JPanel implements MouseListener, MouseMotionListener
 				}
 				switch (mode) {
 				case 'r':
-					f = new Rechteck(x, y, width, height, fill);
+					f = new Rechteck(x, y, width, height, fill, color);
 					break;
 				case 'l': 
 					f = new Line(x,y,e.getX(), e.getY());
+					f.move(10, 10);
 					break;
 				case 'o':
 					f = new Oval(x, y, width, height, fill);

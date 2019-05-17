@@ -16,7 +16,7 @@ public class Oval extends Figur {
 	
 	@Override
 	public void draw(Graphics g) {
-		// TODO Auto-generated method stub
+		// TODO Auto-generated method stub	
 		if(fill == 'e') {
 			g.drawOval(x, y, width, height);
 		}
